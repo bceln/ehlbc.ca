@@ -282,7 +282,6 @@
 .view-contacts table th,
 .view-profile-contacts table td,
 .view-profile-contacts table th,
-.view-licenses table td,
 .view-licenses table th,
 .view-trials table td,
 .view-trials table th,
@@ -298,6 +297,13 @@
   border: none;
   padding: 8px 5px;
   vertical-align: top;
+}
+
+.view-licenses table td {
+	background: none;
+  border: none;
+	padding: 8px 0px;
+	vertical-align: top;
 }
 
 .page-forum table thead tr {
