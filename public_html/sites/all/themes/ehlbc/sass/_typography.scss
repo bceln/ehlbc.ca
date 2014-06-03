@@ -17,7 +17,7 @@
 /* -----------------------------------------
    Global Rules and the article type:
 
-   This is the core of the taxonomy of the 
+   This is the core of the taxonomy of the
    site so we put it right up at the top
 
    Everything else will derive from this
@@ -43,11 +43,11 @@ body{ color: $gray_14; }
 
 body, p {
     font-family: minion-pro-1, minion-pro-2, Georgia, 'Times New Roman', serif;
-    font-size: rem(1.5);
+    font-size: rem(1.6);
     line-height: 1.385;
 }
 
-h1#page-title{ 
+h1#page-title{
   color: $mainColor;
   font-size: 2.267em;
   font-weight: normal;
@@ -61,12 +61,12 @@ article {
   #{headers(6)} {  }
 
   h1 { }
-  h2 { 
+  h2 {
     color: $secondaryColor;
     font-size: 1.133em;
     font-weight: bold;
   }
-  h3 { 
+  h3 {
     color: $mainColor;
     font-size: 1em;
     font-weight: bold;
@@ -81,7 +81,7 @@ article {
     p { }
   }
 
-  ul { 
+  ul {
     padding-left: 40px;
   }
 
@@ -96,7 +96,7 @@ article {
     margin-bottom: rem(1.2);
     */
   }
- 
+
 }
 
 #content article ul.links {
@@ -154,7 +154,7 @@ nav {
       a { }
     }
   }
-  a { 
+  a {
     font: {    };
   }
   .flyout {
@@ -166,7 +166,7 @@ nav {
   }
 }
 
- 
+
 /* -----------------------------------------
    Block typography:
 ----------------------------------------- */
@@ -181,19 +181,19 @@ nav {
     clear: both;
     color: $gray_14;
     font-family: Helvetica, Arial, sans-serif;
-    font-size: rem(1.5); 
+    font-size: rem(1.5);
     font-weight: bold;
   }
 }
 
 
 /* -----------------------------------------
-   Individual fields 
+   Individual fields
 ----------------------------------------- */
 
 .field-name-field-trial-deadline {
   font-size: rem(1.8);
-  text-align: center;  
+  text-align: center;
 }
 
 
@@ -236,8 +236,8 @@ ul.pagination {
   a {}
 }
 
-.more-link { 
-  a{ 
+.more-link {
+  a{
     &:hover { }
   }
 }
@@ -283,5 +283,5 @@ ul.pagination {
     a {
       text-decoration: underline;
     }
-  } 
+  }
 }

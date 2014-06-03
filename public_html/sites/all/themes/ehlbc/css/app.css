@@ -6845,7 +6845,7 @@ table.hide-for-medium {
 /* -----------------------------------------
    Global Rules and the article type:
 
-   This is the core of the taxonomy of the 
+   This is the core of the taxonomy of the
    site so we put it right up at the top
 
    Everything else will derive from this
@@ -6872,7 +6872,7 @@ body {
 /* line 44, ../sass/_typography.scss */
 body, p {
   font-family: minion-pro-1, minion-pro-2, Georgia, 'Times New Roman', serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.385;
 }
 
@@ -7061,7 +7061,7 @@ body.node-type-trial-renewal article .block .field-label, .block body.page-user 
 }
 
 /* -----------------------------------------
-   Individual fields 
+   Individual fields
 ----------------------------------------- */
 /* line 194, ../sass/_typography.scss */
 .field-name-field-trial-deadline {
@@ -7542,7 +7542,7 @@ body.node-type-trial-renewal article .orbit div.orbit-content .orbit-title.field
   position: absolute;
   top: 0;
   left: -20px;
-  background: url('../images/foundation/orbit/rotator-black.png?1392145132') no-repeat;
+  background: url('../images/foundation/orbit/rotator-black.png?1381344343') no-repeat;
   z-index: 3;
 }
 /* line 113, ../sass/_orbit.scss */
@@ -7564,7 +7564,7 @@ body.node-type-trial-renewal article .orbit div.orbit-content .orbit-title.field
 .orbit-wrapper span.mask.move {
   width: 40px;
   left: 0;
-  background: url('../images/foundation/orbit/timer-black.png?1392145132') repeat 0 0;
+  background: url('../images/foundation/orbit/timer-black.png?1381344343') repeat 0 0;
 }
 /* line 130, ../sass/_orbit.scss */
 .orbit-wrapper span.pause {
@@ -7574,13 +7574,13 @@ body.node-type-trial-renewal article .orbit div.orbit-content .orbit-title.field
   position: absolute;
   top: 0;
   left: 0;
-  background: url('../images/foundation/orbit/pause-black.png?1392145132') no-repeat;
+  background: url('../images/foundation/orbit/pause-black.png?1381344343') no-repeat;
   z-index: 4;
   opacity: 0;
 }
 /* line 140, ../sass/_orbit.scss */
 .orbit-wrapper span.pause.active {
-  background: url('../images/foundation/orbit/pause-black.png?1392145132') no-repeat 0 -40px;
+  background: url('../images/foundation/orbit/pause-black.png?1381344343') no-repeat 0 -40px;
 }
 /* line 142, ../sass/_orbit.scss */
 .orbit-wrapper .timer:hover span.pause, .orbit-wrapper .timer:focus span.pause, .orbit-wrapper span.pause.active {
@@ -7627,24 +7627,24 @@ body.node-type-trial-renewal article .orbit div.orbit-content .orbit-title.field
 }
 /* line 180, ../sass/_orbit.scss */
 .orbit-wrapper .slider-nav span.right {
-  background: url('../images/foundation/orbit/right-arrow.png?1392145132');
+  background: url('../images/foundation/orbit/right-arrow.png?1381344343');
   background-size: 100%;
   right: 0;
 }
 /* line 185, ../sass/_orbit.scss */
 .orbit-wrapper .slider-nav span.left {
-  background: url('../images/foundation/orbit/left-arrow.png?1392145132');
+  background: url('../images/foundation/orbit/left-arrow.png?1381344343');
   background-size: 100%;
   left: 0;
 }
 
 /* line 194, ../sass/_orbit.scss */
 .lt-ie9 .orbit-wrapper .slider-nav span.right {
-  background: url('../images/foundation/orbit/right-arrow-small.png?1392145132');
+  background: url('../images/foundation/orbit/right-arrow-small.png?1381344343');
 }
 /* line 197, ../sass/_orbit.scss */
 .lt-ie9 .orbit-wrapper .slider-nav span.left {
-  background: url('../images/foundation/orbit/left-arrow-small.png?1392145132');
+  background: url('../images/foundation/orbit/left-arrow-small.png?1381344343');
 }
 
 /* Bullet Nav ---------------------- */
@@ -9326,7 +9326,7 @@ li.btn {
   vertical-align: top;
 }
 
-/* line 301, ../sass/_views.scss */
+/* line 302, ../sass/_views.scss */
 .view-licenses table td {
   background: none;
   border: none;
@@ -9334,12 +9334,12 @@ li.btn {
   vertical-align: top;
 }
 
-/* line 308, ../sass/_views.scss */
+/* line 309, ../sass/_views.scss */
 .page-forum table thead tr {
   background: url("../images/dashed-border.png") repeat-x 0 bottom;
 }
 
-/* line 329, ../sass/_views.scss */
+/* line 330, ../sass/_views.scss */
 .view-resources table tr.even,
 .view-resources table tr.odd,
 .view-contacts table tr.even,
@@ -9362,26 +9362,26 @@ li.btn {
   border: none;
 }
 
-/* line 334, ../sass/_views.scss */
+/* line 335, ../sass/_views.scss */
 .view-resources td.views-field-title {
   font-family: "minion-pro-1","minion-pro-2", Georgia, 'Times New Roman', serif;
   font-weight: bold;
   width: 225px;
 }
 
-/* line 340, ../sass/_views.scss */
+/* line 341, ../sass/_views.scss */
 .view-resources td.views-field-title a {
   color: #18729d;
   font-size: 1.133em;
 }
 
-/* line 346, ../sass/_views.scss */
+/* line 347, ../sass/_views.scss */
 .view-resources td.views-field-body {
   color: #2a2724;
   font-family: "minion-pro-1","minion-pro-2", Georgia, 'Times New Roman', serif;
 }
 
-/* line 358, ../sass/_views.scss */
+/* line 359, ../sass/_views.scss */
 .view-resources th,
 .view-organizations th,
 .view-organization-contacts th,
@@ -9393,13 +9393,13 @@ li.btn {
   font-weight: bold;
 }
 
-/* line 363, ../sass/_views.scss */
+/* line 364, ../sass/_views.scss */
 .view-resources .view-header {
   position: absolute;
   top: 0;
   right: 15px;
 }
-/* line 367, ../sass/_views.scss */
+/* line 368, ../sass/_views.scss */
 .view-resources .view-header a.button, .view-resources .view-header #content > article:not(.node-contact) .collapsed legend a, #content > article:not(.node-contact) .collapsed legend .view-resources .view-header a,
 .view-resources .view-header #content > article:not(.node-contact) .collapsible legend a,
 #content > article:not(.node-contact) .collapsible legend .view-resources .view-header a,
@@ -9450,7 +9450,7 @@ body.page-user .profile .collapsible legend .view-resources .view-header a {
   -webkit-border-radius: 15px;
 }
 
-/* line 373, ../sass/_views.scss */
+/* line 374, ../sass/_views.scss */
 .view-contacts .view-header a.button, .view-contacts .view-header #content > article:not(.node-contact) .collapsed legend a, #content > article:not(.node-contact) .collapsed legend .view-contacts .view-header a,
 .view-contacts .view-header #content > article:not(.node-contact) .collapsible legend a,
 #content > article:not(.node-contact) .collapsible legend .view-contacts .view-header a,
@@ -9567,16 +9567,15 @@ body.page-user .profile .collapsible legend .view-organizations .view-header a {
   -webkit-border-radius: 15px;
 }
 
-/* line 376, ../sass/_views.scss */
+/* line 377, ../sass/_views.scss */
 .view-resources .view-filters {
   background: none;
   padding: 0;
 }
 
-/* line 381, ../sass/_views.scss */
+/* line 382, ../sass/_views.scss */
 .view-resources .views-exposed-form {
   background: #EFEFEF;
-  margin-top: -19px;
   padding: 0 10px;
   float: right;
 }
