@@ -165,7 +165,7 @@ function ehlbc_preprocess_node(&$variables){
       $variables['content']['field_vendor_info']['#title'] = t('Vendor');
       $variables['content']['field_vendor_info']['#label_display'] = 'above';
       $variables['content']['field_vendor_info']['#field_name'] = 'field_vendor_info';
-      $variables['content']['field_vendor_info'][0]['#markup'] = t('!vendor-name', array('!vendor-name' => l($vendor_node->title, 'vendor/' . $vendor_node->nid)));
+      $variables['content']['field_vendor_info'][0]['#markup'] = t('!vendor-name', array('!vendor-name' => l($vendor_node->title, 'vendors/' . $vendor_node->nid)));
       $variables['content']['field_vendor_info']['#weight'] = 3;
 
       $variables['content']['field_resource_ref']['#title'] = t('Vendor Description');
