@@ -4115,6 +4115,10 @@ div.alert-box a.close:hover, div.alert-box a.close:focus {
   opacity: 0.4;
 }
 
+.messages.alert-box a {
+color: orange;
+}
+
 /* Labels ---------------------- */
 /* line 41, ../../../../../../../../.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 .label, .orbit .orbit-edit-link a {
