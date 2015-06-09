@@ -8,5 +8,3 @@ dependencies[] = entity
 dependencies[] = php
 dependencies[] = rules
 features[features_api][] = api:2
-features[rules_config][] = rules_force_profile_creation
-features[rules_config][] = rules_user_profile_reminder
