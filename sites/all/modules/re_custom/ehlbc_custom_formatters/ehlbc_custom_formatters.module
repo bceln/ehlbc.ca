@@ -198,3 +198,9 @@ function theme_ehlbc_simple_div($variables) {
   return sprintf($div_pattern, implode(' ', $variables['class']), $content);
 } // theme_ehlbc_simple_div()
 
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function ehlbc_custom_formatters_field_widget_multiselect_form_alter(&$element, &$form_state, $context) {
+  $element['#size'] = 30;
+}
