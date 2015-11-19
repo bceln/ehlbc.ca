@@ -1,4 +1,3 @@
-AddHandler application/x-httpd-php56 .php .php5 .php4 .php3
 #
 # Apache/PHP/Drupal settings:
 #
@@ -141,4 +140,10 @@ DirectoryIndex index.php index.html index.htm
       Header append Vary Accept-Encoding
     </FilesMatch>
   </IfModule>
+</IfModule>
+
+# Add headers to all responses.
+<IfModule mod_headers.c>
+  # Disable content sniffing, since it's an attack vector.
+  Header always set X-Content-Type-Options nosniff
 </IfModule>

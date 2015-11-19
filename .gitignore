@@ -4,11 +4,3 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
-
-# Ignore PHP error log on production
-error_log
-
-# Ignore legacy symlink to web root dir of subdomain on production,
-# representing the former location of said web root dir.
-newsletter.ehlbc.ca
-
