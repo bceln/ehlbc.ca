@@ -65,6 +65,7 @@ function cck_select_other_field_formatter_view($entity_type, $entity, $field, $i
 
     $settings = $instance['widget']['settings'];
     $options = cck_select_other_options($instance);
+    $element = array();
 
     foreach ($items as $delta => $item) {
 
