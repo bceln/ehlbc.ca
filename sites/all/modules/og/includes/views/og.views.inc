@@ -60,6 +60,7 @@ class OgMembershipViewsController extends EntityDefaultViewsController {
       // Provide a possible relationship to roles through uid.
       'relationship' => array(
         'label' => t('OG Roles from OG membership'),
+        'handler' => 'og_handler_relationship_membership_roles',
         'base' => 'og_users_roles',
         'base field' => 'uid',
         'relationship field' => 'etid',
@@ -86,12 +87,21 @@ class OgMembershipViewsController extends EntityDefaultViewsController {
       ),
     );
 
-    // Link to edit membership
+    // Link to edit membership.
     $data['og_membership']['edit_membership'] = array(
       'field' => array(
         'title' => t('Edit link'),
         'help' => t('Provide a simple link to edit the membership.'),
         'handler' => 'og_handler_field_og_membership_link_edit',
+      ),
+    );
+
+    // Link to delete membership.
+    $data['og_membership']['delete_membership'] = array(
+      'field' => array(
+        'title' => t('Delete link'),
+        'help' => t('Provide a simple link to delete the membership.'),
+        'handler' => 'og_handler_field_og_membership_link_delete',
       ),
     );
 
@@ -104,10 +114,10 @@ class OgMembershipViewsController extends EntityDefaultViewsController {
  */
 function og_views_data_alter(&$data) {
   $group_content_entities = og_get_all_group_content_entity();
-  $group_entities = og_get_all_group_entity();
+  $group_entity_types = og_get_all_group_entity();
 
   foreach (entity_get_info() as $entity_type => $info) {
-    if (empty($group_content_entities[$entity_type]) && empty($group_entities[$entity_type])) {
+    if (empty($group_content_entities[$entity_type]) && empty($group_entity_types[$entity_type])) {
       continue;
     }
 

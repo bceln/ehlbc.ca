@@ -125,7 +125,7 @@ class OgSelectionHandler extends EntityReference_SelectionHandler_Generic {
           }
           elseif (!empty($node->nid) && (og_user_access($group_type, $gid, "update any $node_type content") || ($user->uid == $node->uid && og_user_access($group_type, $gid, "update own $node_type content")))) {
             $node_groups = isset($node_groups) ? $node_groups : og_get_entity_groups('node', $node->nid);
-            if (in_array($gid, $node_groups['node'])) {
+            if (in_array($gid, $node_groups[$group_type])) {
               $ids[] = $gid;
             }
           }
@@ -182,6 +182,11 @@ class OgSelectionHandler extends EntityReference_SelectionHandler_Generic {
       return array();
     }
 
+    if (!empty($this->entity->nid)) {
+      // Existing node.
+      return array();
+    }
+
     if (!module_exists('entityreference_prepopulate') || empty($this->instance['settings']['behaviors']['prepopulate'])) {
       return array();
     }
@@ -192,7 +197,7 @@ class OgSelectionHandler extends EntityReference_SelectionHandler_Generic {
     }
     $node_type = $this->instance['bundle'];
     foreach ($ids as $delta => $id) {
-      if (!is_numeric($id) || !$id || !og_user_access('node', $id, "create $node_type content")) {
+      if (!is_numeric($id) || !$id || !og_user_access($this->field['settings']['target_type'], $id, "create $node_type content")) {
         unset($ids[$delta]);
       }
     }

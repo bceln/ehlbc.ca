@@ -123,6 +123,22 @@ function hook_og_role_revoke($entity_type, $gid, $uid, $rid) {
 }
 
 /**
+ * Give a notification about OG role permissions change.
+ *
+ * @param $role
+ *   The role object of the changed role.
+ * @param $grant
+ *   A list of granted permission names.
+ * @param $revoke
+ *   A list of revoked permission names.
+ */
+function hook_og_role_change_permissions($role, $grant, $revoke) {
+  if (!$role->gid) {
+    drupal_set_message(t('Global group permissions granted for @role users: @permissions', array('@role' => $role->name, '@permissions' => implode(', ', $grant))));
+  }
+}
+
+/**
  * Provide information about fields that are related to Organic groups.
  *
  * Using this info, Organic groups is aware of the fields, and allows adding
@@ -222,16 +238,16 @@ function hook_og_user_access_alter(&$perm, $context) {
 
 
 /**
-* Acts on OG membership types being loaded from the database.
-*
-* This hook is invoked during OG membership type loading, which is handled by
-* entity_load(), via the EntityCRUDController.
-*
-* @param array $og_membership_types
-*   An array of OG membership type entities being loaded, keyed by id.
-*
-* @see hook_entity_load()
-*/
+ * Acts on OG membership types being loaded from the database.
+ *
+ * This hook is invoked during OG membership type loading, which is handled by
+ * entity_load(), via the EntityCRUDController.
+ *
+ * @param array $og_membership_types
+ *   An array of OG membership type entities being loaded, keyed by id.
+ *
+ * @see hook_entity_load()
+ */
 function hook_og_membership_type_load(array $og_membership_types) {
   $result = db_query('SELECT pid, foo FROM {mytable} WHERE pid IN(:ids)', array(':ids' => array_keys($entities)));
   foreach ($result as $record) {
@@ -240,15 +256,15 @@ function hook_og_membership_type_load(array $og_membership_types) {
 }
 
 /**
-* Responds when a OG membership type is inserted.
-*
-* This hook is invoked after the OG membership type is inserted into the database.
-*
-* @param OgMembershipType $og_membership
-*   The OG membership type that is being inserted.
-*
-* @see hook_entity_insert()
-*/
+ * Responds when a OG membership type is inserted.
+ *
+ * This hook is invoked after the OG membership type is inserted into the database.
+ *
+ * @param OgMembershipType $og_membership
+ *   The OG membership type that is being inserted.
+ *
+ * @see hook_entity_insert()
+ */
 function hook_og_membership_type_insert(OgMembershipType $og_membership) {
   db_insert('mytable')
     ->fields(array(
@@ -259,29 +275,29 @@ function hook_og_membership_type_insert(OgMembershipType $og_membership) {
 }
 
 /**
-* Acts on a OG membership type being inserted or updated.
-*
-* This hook is invoked before the OG membership type is saved to the database.
-*
-* @param OgMembershipType $og_membership
-*   The OG membership type that is being inserted or updated.
-*
-* @see hook_entity_presave()
-*/
+ * Acts on a OG membership type being inserted or updated.
+ *
+ * This hook is invoked before the OG membership type is saved to the database.
+ *
+ * @param OgMembershipType $og_membership
+ *   The OG membership type that is being inserted or updated.
+ *
+ * @see hook_entity_presave()
+ */
 function hook_og_membership_type_presave(OgMembershipType $og_membership) {
   $og_membership->name = 'foo';
 }
 
 /**
-* Responds to a OG membership type being updated.
-*
-* This hook is invoked after the OG membership type has been updated in the database.
-*
-* @param OgMembershipType $og_membership
-*   The OG membership type that is being updated.
-*
-* @see hook_entity_update()
-*/
+ * Responds to a OG membership type being updated.
+ *
+ * This hook is invoked after the OG membership type has been updated in the database.
+ *
+ * @param OgMembershipType $og_membership
+ *   The OG membership type that is being updated.
+ *
+ * @see hook_entity_update()
+ */
 function hook_og_membership_type_update(OgMembershipType $og_membership) {
   db_update('mytable')
     ->fields(array('extra' => print_r($og_membership, TRUE)))
@@ -290,15 +306,15 @@ function hook_og_membership_type_update(OgMembershipType $og_membership) {
 }
 
 /**
-* Responds to OG membership type deletion.
-*
-* This hook is invoked after the OG membership type has been removed from the database.
-*
-* @param OgMembershipType $og_membership
-*   The OG membership type that is being deleted.
-*
-* @see hook_entity_delete()
-*/
+ * Responds to OG membership type deletion.
+ *
+ * This hook is invoked after the OG membership type has been removed from the database.
+ *
+ * @param OgMembershipType $og_membership
+ *   The OG membership type that is being deleted.
+ *
+ * @see hook_entity_delete()
+ */
 function hook_og_membership_type_delete(OgMembershipType $og_membership) {
   db_delete('mytable')
     ->condition('pid', entity_id('og_membership_type', $og_membership))
@@ -306,13 +322,13 @@ function hook_og_membership_type_delete(OgMembershipType $og_membership) {
 }
 
 /**
-* Define default OG membership type configurations.
-*
-* @return
-*   An array of default OG membership types, keyed by machine names.
-*
-* @see hook_default_og_membership_type_alter()
-*/
+ * Define default OG membership type configurations.
+ *
+ * @return
+ *   An array of default OG membership types, keyed by machine names.
+ *
+ * @see hook_default_og_membership_type_alter()
+ */
 function hook_default_og_membership_type() {
   $defaults['main'] = entity_create('og_membership_type', array(
     // �
@@ -321,46 +337,46 @@ function hook_default_og_membership_type() {
 }
 
 /**
-* Alter default OG membership type configurations.
-*
-* @param array $defaults
-*   An array of default OG membership types, keyed by machine names.
-*
-* @see hook_default_og_membership_type()
-*/
+ * Alter default OG membership type configurations.
+ *
+ * @param array $defaults
+ *   An array of default OG membership types, keyed by machine names.
+ *
+ * @see hook_default_og_membership_type()
+ */
 function hook_default_og_membership_type_alter(array &$defaults) {
   $defaults['main']->name = 'custom name';
 }
 
 
 /**
-* Acts on OG memberships being loaded from the database.
-*
-* This hook is invoked during OG membership loading, which is handled by
-* entity_load(), via the EntityCRUDController.
-*
-* @param array $og_memberships
-*   An array of OG membership entities being loaded, keyed by id.
-*
-* @see hook_entity_load()
-*/
+ * Acts on OG memberships being loaded from the database.
+ *
+ * This hook is invoked during OG membership loading, which is handled by
+ * entity_load(), via the EntityCRUDController.
+ *
+ * @param array $og_memberships
+ *   An array of OG membership entities being loaded, keyed by id.
+ *
+ * @see hook_entity_load()
+ */
 function hook_og_membership_load(array $og_memberships) {
-  $result = db_query('SELECT pid, foo FROM {mytable} WHERE pid IN(:ids)', array(':ids' => array_keys($entities)));
+  $result = db_query('SELECT pid, foo FROM {mytable} WHERE pid IN(:ids)', array(':ids' => array_keys($og_memberships)));
   foreach ($result as $record) {
-    $entities[$record->pid]->foo = $record->foo;
+    $og_memberships[$record->pid]->foo = $record->foo;
   }
 }
 
 /**
-* Responds when a OG membership is inserted.
-*
-* This hook is invoked after the OG membership is inserted into the database.
-*
-* @param OgMembership $og_membership
-*   The OG membership that is being inserted.
-*
-* @see hook_entity_insert()
-*/
+ * Responds when a OG membership is inserted.
+ *
+ * This hook is invoked after the OG membership is inserted into the database.
+ *
+ * @param OgMembership $og_membership
+ *   The OG membership that is being inserted.
+ *
+ * @see hook_entity_insert()
+ */
 function hook_og_membership_insert(OgMembership $og_membership) {
   db_insert('mytable')
     ->fields(array(
@@ -371,29 +387,29 @@ function hook_og_membership_insert(OgMembership $og_membership) {
 }
 
 /**
-* Acts on a OG membership being inserted or updated.
-*
-* This hook is invoked before the OG membership is saved to the database.
-*
-* @param OgMembership $og_membership
-*   The OG membership that is being inserted or updated.
-*
-* @see hook_entity_presave()
-*/
+ * Acts on a OG membership being inserted or updated.
+ *
+ * This hook is invoked before the OG membership is saved to the database.
+ *
+ * @param OgMembership $og_membership
+ *   The OG membership that is being inserted or updated.
+ *
+ * @see hook_entity_presave()
+ */
 function hook_og_membership_presave(OgMembership $og_membership) {
   $og_membership->name = 'foo';
 }
 
 /**
-* Responds to a OG membership being updated.
-*
-* This hook is invoked after the OG membership has been updated in the database.
-*
-* @param OgMembership $og_membership
-*   The OG membership that is being updated.
-*
-* @see hook_entity_update()
-*/
+ * Responds to a OG membership being updated.
+ *
+ * This hook is invoked after the OG membership has been updated in the database.
+ *
+ * @param OgMembership $og_membership
+ *   The OG membership that is being updated.
+ *
+ * @see hook_entity_update()
+ */
 function hook_og_membership_update(OgMembership $og_membership) {
   db_update('mytable')
     ->fields(array('extra' => print_r($og_membership, TRUE)))
@@ -402,15 +418,15 @@ function hook_og_membership_update(OgMembership $og_membership) {
 }
 
 /**
-* Responds to OG membership deletion.
-*
-* This hook is invoked after the OG membership has been removed from the database.
-*
-* @param OgMembership $og_membership
-*   The OG membership that is being deleted.
-*
-* @see hook_entity_delete()
-*/
+ * Responds to OG membership deletion.
+ *
+ * This hook is invoked after the OG membership has been removed from the database.
+ *
+ * @param OgMembership $og_membership
+ *   The OG membership that is being deleted.
+ *
+ * @see hook_entity_delete()
+ */
 function hook_og_membership_delete(OgMembership $og_membership) {
   db_delete('mytable')
     ->condition('pid', entity_id('og_membership', $og_membership))

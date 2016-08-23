@@ -13,9 +13,9 @@ core = 7.x
 php = 5.x
 
 
-; Information added by Drupal.org packaging script on 2015-08-05
-version = "7.x-1.1+4-dev"
+; Information added by Drupal.org packaging script on 2016-05-08
+version = "7.x-1.2"
 core = "7.x"
 project = "cck_select_other"
-datestamp = "1438782240"
+datestamp = "1462731961"
 
